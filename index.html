@@ -280,6 +280,23 @@
       .made-by { display:block; margin-top:6px; font-size:11.5px; letter-spacing:.04em; color:rgba(12,39,80,.45); text-decoration:none; }
       .made-by b { color:rgba(12,39,80,.72); font-weight:600; letter-spacing:.08em; }
       .made-by:hover b { color:#cca01c; }
+
+      /* розмовний клуб */
+      .club { background:var(--navy); color:#fff; }
+      .club .section-title { color:#fff; }
+      .club-lead { max-width:640px; margin:0 auto 34px; text-align:center; color:rgba(255,255,255,.72); font-size:16px; line-height:1.7; }
+      .club-grid { display:grid; grid-template-columns:1.15fr .85fr; gap:22px; align-items:start; }
+      .club-box { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); border-radius:22px; padding:28px 26px; }
+      .club-box h3 { margin:0 0 14px; font-size:23px; color:#fff; }
+      .club-list { list-style:none; margin:0; padding:0; display:grid; gap:11px; }
+      .club-list li { position:relative; padding-left:24px; font-size:15px; line-height:1.6; color:rgba(255,255,255,.82); }
+      .club-list li:before { content:"✦"; position:absolute; left:0; color:var(--yellow); }
+      .club-facts { display:grid; gap:12px; }
+      .club-fact { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); border-radius:16px; padding:16px 18px; }
+      .club-fact b { display:block; font-size:19px; color:var(--yellow); margin-bottom:2px; }
+      .club-fact span { font-size:13.5px; color:rgba(255,255,255,.7); }
+      .club-note { margin-top:22px; text-align:center; font-size:14px; color:rgba(255,255,255,.6); }
+      @media (max-width:900px){ .club-grid { grid-template-columns:1fr; } }
 </style>
   </head>
   <body>
@@ -287,13 +304,13 @@
       <div class="container nav">
         <a class="brand brand--logo" href="#top" aria-label="SOVELLIA — на головну"><img src="sovellia-logo.jpg" alt="SOVELLIA" class="brand__img"><span class="brand__name">SOVELLIA<small>Ангеліна</small></span></a>
         <nav class="nav-links" aria-label="Головна навігація">
-          <a href="#about">Про мене</a><a href="#formats">Уроки</a><a href="#method">Метод</a><a href="#included">Що входить</a><a href="#book">Посібник</a><a href="#test">Тест</a><a href="#pricing">Ціни</a><a href="#reviews">Відгуки</a><a href="#faq">FAQ</a><a href="#contacts">Контакти</a>
+          <a href="#about">Про мене</a><a href="#formats">Уроки</a><a href="#method">Метод</a><a href="#included">Що входить</a><a href="#club">Клуб</a><a href="#book">Посібник</a><a href="#test">Тест</a><a href="#pricing">Ціни</a><a href="#reviews">Відгуки</a><a href="#faq">FAQ</a><a href="#contacts">Контакти</a>
         </nav>
         <button class="btn btn--primary nav-cta js-open-modal" type="button">Записатися на пробний <span>↗</span></button>
         <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Відкрити меню" aria-expanded="false">☰</button>
       </div>
       <nav class="mobile-menu" id="mobile-menu" aria-label="Мобільна навігація">
-        <a href="#about">Про мене</a><a href="#formats">Уроки</a><a href="#method">Метод</a><a href="#included">Що входить</a><a href="#book">Посібник</a><a href="#test">Тест</a><a href="#pricing">Ціни</a><a href="#reviews">Відгуки</a><a href="#faq">FAQ</a><a href="#contacts">Контакти</a>
+        <a href="#about">Про мене</a><a href="#formats">Уроки</a><a href="#method">Метод</a><a href="#included">Що входить</a><a href="#club">Клуб</a><a href="#book">Посібник</a><a href="#test">Тест</a><a href="#pricing">Ціни</a><a href="#reviews">Відгуки</a><a href="#faq">FAQ</a><a href="#contacts">Контакти</a>
         <button class="btn btn--primary js-open-modal" type="button">Записатися на пробний урок ↗</button>
       </nav>
     </header>
@@ -457,6 +474,57 @@
               <p>Фільми, серіали й традиції, які реально дивляться у Швеції. Мова разом із культурою.</p>
             </article>
           </div>
+        </div>
+      </section>
+
+
+      <section class="section club" id="club">
+        <div class="container">
+          <h2 class="section-title reveal" style="text-align:center">Розмовний клуб <span class="yellow">☕</span></h2>
+          <p class="club-lead reveal">
+            У Швеції <b style="color:#fff">fika</b> — це не просто кава. Це пауза, коли люди сідають разом
+            і просто говорять. Саме так проходить і наш клуб: раз на місяць збираємось онлайн
+            і говоримо шведською. Без домашки, без оцінок і без страху помилитися.
+          </p>
+          <div class="club-grid">
+            <div class="club-box reveal">
+              <h3>Як проходить зустріч</h3>
+              <ul class="club-list">
+                <li>Тема місяця. Різдвяна фіка, великодня Påskfika, будь-яка інша — щоразу нова.</li>
+                <li>Розмовна практика: говоримо шведською стільки, скільки виходить, навіть одним словом.</li>
+                <li>Відповідаю на ваші питання, які накопичились між уроками.</li>
+                <li>Пробуємо нові методи навчання — те, що потім використовуємо на заняттях.</li>
+                <li>Разом обираємо книжку для книжкового клубу.</li>
+              </ul>
+            </div>
+            <div class="club-facts">
+              <div class="club-fact reveal"><b>Раз на місяць</b><span>Дату оголошую заздалегідь у Telegram-каналі</span></div>
+              <div class="club-fact reveal"><b>Близько 1 години 15 хвилин</b><span>Зазвичай увечері, о 20:00 або 21:00</span></div>
+              <div class="club-fact reveal"><b>Безкоштовно для учнів</b><span>Входить у навчання, доплачувати не треба</span></div>
+              <div class="club-fact reveal"><b>Онлайн</b><span>Беріть каву і щось смачне — і приєднуйтесь</span></div>
+            </div>
+          </div>
+
+          <div class="club-grid" style="margin-top:22px">
+            <div class="club-box reveal">
+              <h3>Книжковий клуб 📚</h3>
+              <ul class="club-list">
+                <li>Разом обираємо книжку шведською під наш рівень.</li>
+                <li>Читаємо приблизно два тижні, кожен у своєму темпі.</li>
+                <li>Збираємось і обговорюємо: що зрозуміли, що сподобалось, які слова забрали собі.</li>
+                <li>Того ж дня — фіка, тому зустріч виходить довшою і теплішою.</li>
+              </ul>
+            </div>
+            <div class="club-box reveal">
+              <h3>Як приєднатися</h3>
+              <p style="margin:0 0 16px;font-size:15px;line-height:1.65;color:rgba(255,255,255,.82)">
+                Напишіть мені, і я надішлю посилання на зустріч. Якщо ви ще не мій учень —
+                приходьте на безкоштовний пробний урок, і клуб теж стане вашим.
+              </p>
+              <button class="btn btn--yellow js-open-modal" type="button">Хочу на зустріч →</button>
+            </div>
+          </div>
+          <p class="club-note reveal">Vi ses på fikan! ☕</p>
         </div>
       </section>
 
