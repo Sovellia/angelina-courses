@@ -12,6 +12,18 @@
       :root { --ink:#0c2750; --navy:#071f49; --cream:#fffdf8; --paper:#fffefa; --milk:#f7f1e7; --yellow:#f4c54b; --blue:#dceaf2; --pink:#ca8da2; --line:rgba(12,39,80,.11); --shadow:0 20px 45px rgba(20,34,54,.10); }
       * { box-sizing:border-box; }
 
+      /* ── ЩО ВХОДИТЬ ── */
+      .included { background:var(--cream); }
+      .inc-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:18px; }
+      .inc-card { background:var(--paper); border:1px solid var(--line); border-radius:22px; padding:26px 24px; box-shadow:var(--shadow); }
+      .inc-emoji { font-size:26px; display:block; margin-bottom:12px; }
+      .inc-card h3 { margin:0 0 8px; font-size:20px; color:var(--ink); }
+      .inc-card p { margin:0; font-size:15px; line-height:1.6; color:rgba(12,39,80,.68); }
+      .inc-card--accent { background:var(--navy); }
+      .inc-card--accent h3, .inc-card--accent p { color:#fff; }
+      .inc-card--accent p { color:rgba(255,255,255,.72); }
+
+
       /* ── ЛОГОТИП ── */
       .brand--logo { display:inline-flex; align-items:center; gap:11px; text-decoration:none; }
       .brand__img { width:42px; height:42px; border-radius:11px; object-fit:cover; display:block; box-shadow:0 4px 14px rgba(12,39,80,.18); }
@@ -246,13 +258,13 @@
       <div class="container nav">
         <a class="brand brand--logo" href="#top" aria-label="SOVELLIA — на головну"><img src="sovellia-logo.jpg" alt="SOVELLIA" class="brand__img"><span class="brand__name">SOVELLIA<small>Ангеліна</small></span></a>
         <nav class="nav-links" aria-label="Головна навігація">
-          <a href="#about">Про мене</a><a href="#formats">Уроки</a><a href="#method">Метод</a><a href="#test">Тест</a><a href="#pricing">Ціни</a><a href="#reviews">Відгуки</a><a href="#faq">FAQ</a><a href="#contacts">Контакти</a>
+          <a href="#about">Про мене</a><a href="#formats">Уроки</a><a href="#method">Метод</a><a href="#included">Що входить</a><a href="#test">Тест</a><a href="#pricing">Ціни</a><a href="#reviews">Відгуки</a><a href="#faq">FAQ</a><a href="#contacts">Контакти</a>
         </nav>
         <button class="btn btn--primary nav-cta js-open-modal" type="button">Записатися на пробний <span>↗</span></button>
         <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Відкрити меню" aria-expanded="false">☰</button>
       </div>
       <nav class="mobile-menu" id="mobile-menu" aria-label="Мобільна навігація">
-        <a href="#about">Про мене</a><a href="#formats">Уроки</a><a href="#method">Метод</a><a href="#test">Тест</a><a href="#pricing">Ціни</a><a href="#reviews">Відгуки</a><a href="#faq">FAQ</a><a href="#contacts">Контакти</a>
+        <a href="#about">Про мене</a><a href="#formats">Уроки</a><a href="#method">Метод</a><a href="#included">Що входить</a><a href="#test">Тест</a><a href="#pricing">Ціни</a><a href="#reviews">Відгуки</a><a href="#faq">FAQ</a><a href="#contacts">Контакти</a>
         <button class="btn btn--primary js-open-modal" type="button">Записатися на пробний урок ↗</button>
       </nav>
     </header>
@@ -379,6 +391,46 @@
       </section>
 
 
+
+      <section class="section included" id="included">
+        <div class="container">
+          <h2 class="section-title reveal">Що входить, крім уроків <span class="yellow">✦</span></h2>
+          <p class="timeline-intro reveal">Навчання не закінчується на занятті. Учні SOVELLIA отримують ще й це.</p>
+          <div class="inc-grid">
+            <article class="inc-card reveal">
+              <span class="inc-emoji">☕</span>
+              <h3>Онлайн-фіка щомісяця</h3>
+              <p>Безкоштовна зустріч на годину з чимось. Тематична: різдвяна, великодня, будь-яка. Говоримо шведською без домашки й оцінок.</p>
+            </article>
+            <article class="inc-card reveal">
+              <span class="inc-emoji">📚</span>
+              <h3>Книжковий клуб</h3>
+              <p>Разом обираємо книжку, читаємо і за два тижні збираємось обговорити. З фікою того ж дня.</p>
+            </article>
+            <article class="inc-card reveal">
+              <span class="inc-emoji">📄</span>
+              <h3>Матеріали й підготовка</h3>
+              <p>Добірки слів за темами, синоніми, тексти й завдання, зокрема офіційні матеріали шведських національних тестів.</p>
+            </article>
+            <article class="inc-card reveal">
+              <span class="inc-emoji">💬</span>
+              <h3>Підтримка між уроками</h3>
+              <p>Питання можна ставити не тільки на занятті. Я на звʼязку в Telegram і веду вас за ручку.</p>
+            </article>
+            <article class="inc-card inc-card--accent reveal">
+              <span class="inc-emoji">🎁</span>
+              <h3>Знижка за рекомендацію</h3>
+              <p>Приводиш знайомого — отримуєш 35% знижки на своє навчання. Працює щоразу.</p>
+            </article>
+            <article class="inc-card reveal">
+              <span class="inc-emoji">🎬</span>
+              <h3>Шведська поза підручником</h3>
+              <p>Фільми, серіали й традиції, які реально дивляться у Швеції. Мова разом із культурою.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="section leveltest" id="test">
         <div class="container">
           <h2 class="section-title reveal">Тест на рівень <span class="yellow">✦</span></h2>
@@ -432,10 +484,10 @@
         <article class="faq-item"><button type="button">Як записатися на пробний урок? <span>+</span></button><div class="faq-answer">Заповни коротку форму нижче — я напишу тобі в Telegram або Instagram і знайдемо зручний час.</div></article>
       </div></div></section>
 
-      <section class="final-cta" id="contacts"><div class="container"><div class="cta-card reveal"><div class="cta-copy"><h2>Твоя шведська може початися сьогодні <span>🇸🇪</span></h2><p><strong>Hej</strong> — це вже перше слово.<br>Давай зробимо наступні разом!</p><button class="btn btn--primary js-open-modal" type="button">✈&nbsp; Записатися на безкоштовний урок</button><small>Без зобов'язань. Просто познайомимось і поговоримо про твою ціль.<br><a href="https://t.me/znahidkawow" target="_blank" rel="noreferrer">♡ Долучайся до Telegram-спільноти</a></small></div><div class="cta-photo"><img src="angelina-portrait.jpg" alt="Ангеліна — твоя викладачка шведської" /></div></div></div></section>
+      <section class="final-cta" id="contacts"><div class="container"><div class="cta-card reveal"><div class="cta-copy"><h2>Твоя шведська може початися сьогодні <span>🇸🇪</span></h2><p><strong>Hej</strong> — це вже перше слово.<br>Давай зробимо наступні разом!</p><button class="btn btn--primary js-open-modal" type="button">✈&nbsp; Записатися на безкоштовний урок</button><small>Без зобов'язань. Просто познайомимось і поговоримо про твою ціль.<br><a href="https://t.me/znahidkawow" target="_blank" rel="noreferrer">♡ Долучайся до Telegram-спільноти</a><br>📞 <a href="tel:+380684664979">+380 68 466 49 79</a></small></div><div class="cta-photo"><img src="angelina-portrait.jpg" alt="Ангеліна — твоя викладачка шведської" /></div></div></div></section>
     </main>
 
-    <footer class="footer"><div class="container footer-row"><a class="brand brand--logo" href="#top"><img src="sovellia-logo.jpg" alt="SOVELLIA" class="brand__img"><span class="brand__name">SOVELLIA<small>Ангеліна</small></span></a><nav class="footer-links"><a href="https://t.me/znahidkawow" target="_blank" rel="noreferrer">Telegram-спільнота</a><a href="https://instagram.com/" target="_blank" rel="noreferrer">Instagram</a><a href="https://threads.net/" target="_blank" rel="noreferrer">Threads</a></nav><div class="footer-copy">© 2026 SOVELLIA · Ангеліна. Всі права захищені.</div></div></footer>
+    <footer class="footer"><div class="container footer-row"><a class="brand brand--logo" href="#top"><img src="sovellia-logo.jpg" alt="SOVELLIA" class="brand__img"><span class="brand__name">SOVELLIA<small>Ангеліна</small></span></a><nav class="footer-links"><a href="tel:+380684664979">+380 68 466 49 79</a><a href="https://t.me/znahidkawow" target="_blank" rel="noreferrer">Telegram-спільнота</a><a href="https://instagram.com/" target="_blank" rel="noreferrer">Instagram</a><a href="https://threads.net/" target="_blank" rel="noreferrer">Threads</a></nav><div class="footer-copy">© 2026 SOVELLIA · Ангеліна. Всі права захищені.</div></div></footer>
 
     <div class="modal" id="signup-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <div class="modal-dialog"><button class="modal-close" id="modal-close" type="button" aria-label="Закрити форму">×</button><div id="form-content"><h2 id="modal-title">Давай познайомимось <span class="yellow">♡</span></h2><p>Залиш контакти — я напишу тобі найближчим часом.</p><form id="signup-form"><div class="form-grid"><div class="field"><label for="name">Твоє ім’я</label><input id="name" name="name" type="text" placeholder="Наприклад, Марія" required /></div><div class="field"><label for="contact">Telegram / Instagram</label><input id="contact" name="contact" type="text" placeholder="@username" required /></div><div class="field field--full"><label for="format">Який формат цікавить?</label><select id="format" name="format" required><option value="" disabled selected>Обери формат</option><option>Індивідуальні заняття</option><option>Групові заняття</option><option>Поки не знаю — хочу порадитись</option></select></div><div class="field field--full"><label for="level">Твій рівень шведської</label><select id="level" name="level" required><option value="" disabled selected>Обери рівень</option><option>Починаю з нуля</option><option>A1–A2</option><option>B1–B2</option><option>Не впевнений / не впевнена</option></select></div></div><button class="btn btn--primary form-submit" type="submit">Записатися ✈</button></form></div><div class="form-success" id="form-success">Дякую! ♡ Я зв'яжуся з тобою найближчим часом.</div></div>
