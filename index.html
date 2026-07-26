@@ -342,6 +342,12 @@
       .lightbox.open { display:grid; }
       .lightbox img { max-width:min(100%,900px); max-height:calc(100vh - 96px); border:10px solid #fff; border-radius:4px; box-shadow:0 24px 60px rgba(0,0,0,.4); animation:lightboxIn .22s ease; }
       .lightbox__close { position:absolute; top:18px; right:20px; width:44px; height:44px; border:0; border-radius:50%; background:rgba(255,255,255,.92); color:#0a274e; font-size:22px; line-height:1; cursor:pointer; }
+      /* хрестик у формі не має налазити на заголовок */
+      @media (max-width:760px){
+        .modal-dialog { padding-top:24px; }
+        .modal-dialog h2 { padding-right:44px; }
+        .modal-close { top:12px; right:12px; }
+      }
       @keyframes lightboxIn { from { opacity:0; transform:scale(.96); } to { opacity:1; transform:scale(1); } }
 </style>
   </head>
