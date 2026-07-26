@@ -321,7 +321,7 @@
       /* галерея в блоці «Про мене» */
       .about-photos { width:min(100%,420px); }
       .about-photos .polaroid { width:100%; }
-      .about-thumbs { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:62px; }
+      .about-thumbs { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:62px; }
       .about-thumb { padding:5px 5px 8px; border:0; border-radius:2px; background:#fff; box-shadow:0 6px 16px rgba(34,46,58,.13); cursor:pointer; transition:transform .18s ease, box-shadow .18s ease; }
       .about-thumb:nth-child(odd) { transform:rotate(-2.5deg); }
       .about-thumb:nth-child(2n) { transform:rotate(2deg); }
@@ -331,6 +331,9 @@
       @media (max-width:760px){
         .about-photos { margin:auto; }
         .about-thumbs { margin-top:22px; gap:8px; }
+        /* нижнє фото на телефоні: тримаємо в кадрі обличчя, а не обрізану картку */
+        .cta-photo { min-height:290px; height:290px; }
+        .cta-photo img { object-position:58% 22%; }
       }
 </style>
   </head>
@@ -383,12 +386,14 @@
       <section class="section about" id="about">
         <div class="container about-grid">
           <div class="about-photos reveal">
-            <figure class="polaroid"><img id="aboutPhoto" src="angelina-diploma.jpg" alt="Ангеліна з дипломом" /><figcaption>Jag är inte för alla ♡</figcaption><span class="about-doodle">♡</span><aside class="hero-note"><strong>Привіт! 👋</strong><p>Я Ангеліна, твій провідник у світ шведської мови ♡</p></aside></figure>
+            <figure class="polaroid"><img id="aboutPhoto" src="angelina-diploma.jpg?v=2" alt="Ангеліна з дипломом" /><figcaption>Jag är inte för alla ♡</figcaption><span class="about-doodle">♡</span><aside class="hero-note"><strong>Привіт! 👋</strong><p>Я Ангеліна, твій провідник у світ шведської мови ♡</p></aside></figure>
             <div class="about-thumbs" id="aboutThumbs" role="tablist" aria-label="Фотографії Ангеліни">
-              <button class="about-thumb is-active" type="button" role="tab" aria-selected="true" data-src="angelina-diploma.jpg" data-alt="Ангеліна з дипломом"><img src="angelina-diploma.jpg" alt="Ангеліна з дипломом" loading="lazy" /></button>
+              <button class="about-thumb is-active" type="button" role="tab" aria-selected="true" data-src="angelina-diploma.jpg?v=2" data-alt="Ангеліна з дипломом"><img src="angelina-diploma.jpg?v=2" alt="Ангеліна з дипломом" loading="lazy" /></button>
               <button class="about-thumb" type="button" role="tab" aria-selected="false" data-src="angelina-photo-1.jpg" data-alt="Ангеліна на прогулянці"><img src="angelina-photo-1.jpg" alt="Ангеліна на прогулянці" loading="lazy" /></button>
               <button class="about-thumb" type="button" role="tab" aria-selected="false" data-src="angelina-photo-2.jpg" data-alt="Ангеліна на скелі з видом на місто"><img src="angelina-photo-2.jpg" alt="Ангеліна на скелі з видом на місто" loading="lazy" /></button>
               <button class="about-thumb" type="button" role="tab" aria-selected="false" data-src="angelina-photo-3.jpg" data-alt="Ангеліна на сонці"><img src="angelina-photo-3.jpg" alt="Ангеліна на сонці" loading="lazy" /></button>
+              <button class="about-thumb" type="button" role="tab" aria-selected="false" data-src="angelina-photo-4.jpg" data-alt="Ангеліна за навчанням"><img src="angelina-photo-4.jpg" alt="Ангеліна за навчанням" loading="lazy" /></button>
+              <button class="about-thumb" type="button" role="tab" aria-selected="false" data-src="angelina-photo-5.jpg" data-alt="Ангеліна з карткою «Я не для всіх»"><img src="angelina-photo-5.jpg" alt="Ангеліна з карткою «Я не для всіх»" loading="lazy" /></button>
             </div>
           </div>
           <div class="about-copy reveal"><span class="eyebrow">трохи ближче</span><h2 class="section-title">Про мене <span class="yellow">♡</span></h2><p>Я знаю, як страшно почати говорити новою мовою. Тому на моїх заняттях не потрібно боятися помилок — тут можна говорити, пробувати, сміятися і поступово ставати впевненішим.</p><p>Моя мета — щоб ти не просто знав шведську, а <strong>реально міг нею користуватися у житті.</strong></p><div class="lifestyle" aria-label="Мої інтереси"><span title="Piano">🎹</span><span title="Travel">✈️</span><span title="Books">📚</span><span title="Coffee">☕</span><span title="Moments">📷</span></div></div>
@@ -641,7 +646,7 @@
         <article class="faq-item"><button type="button">Як записатися на пробний урок? <span>+</span></button><div class="faq-answer">Заповни коротку форму нижче — я напишу тобі в Telegram або Instagram і знайдемо зручний час.</div></article>
       </div></div></section>
 
-      <section class="final-cta" id="contacts"><div class="container"><div class="cta-card reveal"><div class="cta-copy"><h2>Твоя шведська може початися сьогодні <span>🇸🇪</span></h2><p><strong>Hej</strong> — це вже перше слово.<br>Давай зробимо наступні разом!</p><button class="btn btn--primary js-open-modal" type="button">✈&nbsp; Записатися на безкоштовний урок</button><small>Без зобов'язань. Просто познайомимось і поговоримо про твою ціль.<br><a href="https://t.me/+xuLODbBw86c2Zjcy" target="_blank" rel="noreferrer">♡ Долучайся до Telegram-каналу</a><br>📞 <a href="tel:+380684664979">+380 68 466 49 79</a></small></div><div class="cta-photo"><img src="angelina-portrait.jpg" alt="Ангеліна — твоя викладачка шведської" /></div></div></div></section>
+      <section class="final-cta" id="contacts"><div class="container"><div class="cta-card reveal"><div class="cta-copy"><h2>Твоя шведська може початися сьогодні <span>🇸🇪</span></h2><p><strong>Hej</strong> — це вже перше слово.<br>Давай зробимо наступні разом!</p><button class="btn btn--primary js-open-modal" type="button">✈&nbsp; Записатися на безкоштовний урок</button><small>Без зобов'язань. Просто познайомимось і поговоримо про твою ціль.<br><a href="https://t.me/+xuLODbBw86c2Zjcy" target="_blank" rel="noreferrer">♡ Долучайся до Telegram-каналу</a><br>📞 <a href="tel:+380684664979">+380 68 466 49 79</a></small></div><div class="cta-photo"><img src="angelina-cta.jpg" alt="Ангеліна — твоя викладачка шведської" /></div></div></div></section>
     </main>
 
     <footer class="footer"><div class="container footer-row"><a class="brand brand--logo" href="#top"><img src="sovellia-logo.jpg" alt="SOVELLIA" class="brand__img"><span class="brand__name">SOVELLIA<small>Ангеліна Танчак</small></span></a><nav class="footer-links"><a href="tel:+380684664979">+380 68 466 49 79</a><a href="https://t.me/+xuLODbBw86c2Zjcy" target="_blank" rel="noreferrer">Telegram-канал</a><a href="https://www.instagram.com/angelina_tanchak/" target="_blank" rel="noreferrer">Instagram</a><a href="https://www.threads.com/@angelina_tanchak" target="_blank" rel="noreferrer">Threads</a></nav><div class="footer-copy">© 2026 SOVELLIA · Ангеліна. Всі права захищені.<a class="made-by" href="https://wowznahidka.github.io/wow-studio/" target="_blank" rel="noopener">Сайт зроблено в <b>WOW STUDIO</b></a></div></div></footer>
