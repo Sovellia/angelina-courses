@@ -342,26 +342,19 @@
       document.querySelectorAll('.js-open-modal').forEach(button => button.addEventListener('click', openSignup));
       closeModal.addEventListener('click', hideSignup); modal.addEventListener('click', event => { if (event.target === modal) hideSignup(); });
       document.addEventListener('keydown', event => { if (event.key === 'Escape') hideSignup(); });
-      const SB_URL = 'https://dzesstdtdqwpnruywbfb.supabase.co';
-      const SB_KEY = 'sb_publishable_JMRhf_8mmPlhecCUyq1l1w_uiu0gJWv';
+      const LEADS_ENDPOINT = 'https://angelina-leads.angelina-courses.workers.dev/lead';
       form.addEventListener('submit', async event => {
         event.preventDefault();
         const payload = {
           name: document.getElementById('name').value,
           contact: document.getElementById('contact').value,
           format: document.getElementById('format').value,
-          level: document.getElementById('level').value,
-          site: 'angelina'
+          level: document.getElementById('level').value
         };
         try {
-          await fetch(`${SB_URL}/rest/v1/leads`, {
+          await fetch(LEADS_ENDPOINT, {
             method: 'POST',
-            headers: {
-              'apikey': SB_KEY,
-              'Authorization': `Bearer ${SB_KEY}`,
-              'Content-Type': 'application/json',
-              'Prefer': 'return=minimal'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
           });
         } catch(e) { /* silent fail — user still gets redirected */ }
