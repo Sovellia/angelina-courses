@@ -621,7 +621,7 @@
       setHeader(); window.addEventListener('scroll', setHeader, { passive:true });
       menuToggle.addEventListener('click', () => { const isOpen = mobileMenu.classList.toggle('open'); menuToggle.setAttribute('aria-expanded', isOpen); menuToggle.textContent = isOpen ? '×' : '☰'; });
       mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { mobileMenu.classList.remove('open'); menuToggle.textContent = '☰'; menuToggle.setAttribute('aria-expanded', 'false'); }));
-      const openSignup = () => { modal.classList.add('open'); document.body.style.overflow = 'hidden'; setTimeout(() => document.getElementById('name').focus(), 100); };
+      const openSignup = () => { formContent.classList.remove('form-hide'); formSuccess.classList.remove('show'); modal.classList.add('open'); document.body.style.overflow = 'hidden'; setTimeout(() => document.getElementById('name').focus(), 100); };
       const hideSignup = () => { modal.classList.remove('open'); document.body.style.overflow = ''; };
       document.querySelectorAll('.js-open-modal').forEach(button => button.addEventListener('click', openSignup));
       closeModal.addEventListener('click', hideSignup); modal.addEventListener('click', event => { if (event.target === modal) hideSignup(); });
