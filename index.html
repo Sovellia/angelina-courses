@@ -740,6 +740,38 @@
         render();
       })();
 
+
+      // ── ціни підтягуються з бота (їх можна міняти без розробника)
+      (function(){
+        var MAP = {
+          private: ['210 крон'],
+          pair:    ['280 крон'],
+          group47: ['3 200 крон'],
+          group45: ['1 220 крон'],
+          book:    ['315 крон']
+        };
+        fetch('https://angelina-leads.angelina-courses.workers.dev/content', {cache:'no-store'})
+          .then(function(r){ return r.json(); })
+          .then(function(d){
+            var p = d && d.prices; if (!p) return;
+            var bp = document.getElementById('book-price');
+            if (bp && p.book) bp.textContent = p.book;
+            // замінюємо старі значення в тексті карток
+            var nodes = document.querySelectorAll('#pricing li b, #formats li b');
+            Array.prototype.forEach.call(nodes, function(el){
+              var t = el.textContent;
+              Object.keys(MAP).forEach(function(k){
+                MAP[k].forEach(function(old){
+                  if (t.indexOf(old) !== -1 && p[k] && p[k] !== old) {
+                    el.textContent = t.replace(old, p[k]);
+                  }
+                });
+              });
+            });
+          })
+          .catch(function(){ /* якщо сервер недоступний — лишаються ціни зі сторінки */ });
+      })();
+
       document.querySelectorAll('.faq-item button').forEach(button => button.addEventListener('click', () => button.parentElement.classList.toggle('open')));
       const track = document.getElementById('reviews-track'); const reviews = Array.from(track.children); let reviewIndex = 0;
       const visibleReviews = () => window.innerWidth <= 760 ? 1 : 3;
