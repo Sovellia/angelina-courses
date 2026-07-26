@@ -335,6 +335,14 @@
         .cta-photo { min-height:290px; height:290px; }
         .cta-photo img { object-position:58% 22%; }
       }
+
+      /* перегляд фото на весь екран */
+      .zoomable { cursor:zoom-in; }
+      .lightbox { position:fixed; inset:0; z-index:120; display:none; place-items:center; padding:24px; background:rgba(12,26,45,.86); backdrop-filter:blur(3px); cursor:zoom-out; }
+      .lightbox.open { display:grid; }
+      .lightbox img { max-width:min(100%,900px); max-height:calc(100vh - 96px); border:10px solid #fff; border-radius:4px; box-shadow:0 24px 60px rgba(0,0,0,.4); animation:lightboxIn .22s ease; }
+      .lightbox__close { position:absolute; top:18px; right:20px; width:44px; height:44px; border:0; border-radius:50%; background:rgba(255,255,255,.92); color:#0a274e; font-size:22px; line-height:1; cursor:pointer; }
+      @keyframes lightboxIn { from { opacity:0; transform:scale(.96); } to { opacity:1; transform:scale(1); } }
 </style>
   </head>
   <body>
@@ -655,6 +663,11 @@
       <div class="modal-dialog"><button class="modal-close" id="modal-close" type="button" aria-label="Закрити форму">×</button><div id="form-content"><h2 id="modal-title">Давай познайомимось <span class="yellow">♡</span></h2><p>Залиш контакти — я напишу тобі найближчим часом.</p><form id="signup-form"><div class="form-grid"><div class="field"><label for="name">Твоє ім’я</label><input id="name" name="name" type="text" placeholder="Наприклад, Марія" required /></div><div class="field"><label for="contact">Telegram / Instagram</label><input id="contact" name="contact" type="text" placeholder="@username" required /></div><div class="field field--full"><label for="format">Який формат цікавить?</label><select id="format" name="format" required><option value="" disabled selected>Обери формат</option><option>Індивідуальні заняття</option><option>Групові заняття</option><option>Поки не знаю — хочу порадитись</option></select></div><div class="field field--full"><label for="level">Твій рівень шведської</label><select id="level" name="level" required><option value="" disabled selected>Обери рівень</option><option>Починаю з нуля</option><option>A1–A2</option><option>B1–B2</option><option>Не впевнений / не впевнена</option></select></div></div><button class="btn btn--primary form-submit" type="submit">Записатися ✈</button></form></div><div class="form-success" id="form-success">Дякую! ♡ Я зв'яжуся з тобою найближчим часом.</div></div>
     </div>
 
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Перегляд фото">
+      <button class="lightbox__close" id="lightbox-close" type="button" aria-label="Закрити фото">×</button>
+      <img id="lightbox-img" src="" alt="" />
+    </div>
+
     <script>
       const header = document.getElementById('header');
       const menuToggle = document.getElementById('menu-toggle');
@@ -843,6 +856,28 @@
             });
           });
         });
+      })();
+
+      // фото на весь екран: маленькі картинки в картках і фото в блоці «Про мене»
+      (function(){
+        const box = document.getElementById('lightbox');
+        const big = document.getElementById('lightbox-img');
+        const close = document.getElementById('lightbox-close');
+        if (!box || !big) return;
+        const targets = document.querySelectorAll('.format-card__image, #aboutPhoto, .cta-photo img');
+        targets.forEach(img => {
+          img.classList.add('zoomable');
+          img.addEventListener('click', () => {
+            big.src = img.currentSrc || img.src;
+            big.alt = img.alt || '';
+            box.classList.add('open');
+            document.body.style.overflow = 'hidden';
+          });
+        });
+        const hide = () => { box.classList.remove('open'); document.body.style.overflow = ''; };
+        box.addEventListener('click', hide);
+        close.addEventListener('click', hide);
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') hide(); });
       })();
 
       const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }), { threshold:.12 });
