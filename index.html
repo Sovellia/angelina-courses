@@ -302,6 +302,19 @@
       .polaroid { overflow:visible; }
       .polaroid .hero-note { right:-64px; bottom:-46px; transform:rotate(-5deg); }
       @media (max-width:760px){ .polaroid .hero-note { right:-10px; bottom:-30px; width:168px; padding:13px; } }
+
+      /* мобільні правки: нотатка під фото, переваги в дві колонки без бічної прокрутки */
+      @media (max-width:760px){
+        .polaroid { padding-bottom:20px; }
+        .polaroid .hero-note { position:static; width:auto; margin:14px 0 0; transform:rotate(-1.5deg); }
+        .polaroid figcaption { position:static; margin-top:12px; }
+        .perks-grid { display:grid!important; grid-template-columns:1fr 1fr; overflow:visible!important; }
+        .perks-grid .perk { min-width:0!important; border-right:1px solid var(--line)!important; border-top:1px solid var(--line)!important; padding:18px 14px; }
+        .perks-grid .perk:nth-child(odd) { border-left:0; }
+        .perks-grid .perk:nth-child(2n) { border-right:0!important; }
+        .perks-grid .perk:nth-child(1), .perks-grid .perk:nth-child(2) { border-top:0!important; }
+        .perks-grid .perk:nth-child(5) { grid-column:1 / -1; border-right:0!important; }
+      }
 </style>
   </head>
   <body>
