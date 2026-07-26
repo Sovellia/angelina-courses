@@ -314,7 +314,8 @@
         .perks-grid .perk:nth-child(odd) { border-left:0; }
         .perks-grid .perk:nth-child(2n) { border-right:0!important; }
         .perks-grid .perk:nth-child(1), .perks-grid .perk:nth-child(2) { border-top:0!important; }
-        .perks-grid .perk:nth-child(5) { grid-column:1 / -1; border-right:0!important; }
+        .perks-grid .perk:nth-child(5) { grid-column:1 / -1; border-right:0!important; justify-content:center; text-align:left; }
+        .perks-grid .perk:nth-child(5) > * { flex:0 0 auto; }
       }
 </style>
   </head>
