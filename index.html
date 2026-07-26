@@ -297,6 +297,11 @@
       .club-fact span { font-size:13.5px; color:rgba(255,255,255,.7); }
       .club-note { margin-top:22px; text-align:center; font-size:14px; color:rgba(255,255,255,.6); }
       @media (max-width:900px){ .club-grid { grid-template-columns:1fr; } }
+
+      /* нотатка переїхала на фото в блоці «Про мене» */
+      .polaroid { overflow:visible; }
+      .polaroid .hero-note { right:-64px; bottom:-46px; transform:rotate(-5deg); }
+      @media (max-width:760px){ .polaroid .hero-note { right:-10px; bottom:-30px; width:168px; padding:13px; } }
 </style>
   </head>
   <body>
@@ -331,7 +336,6 @@
           <div class="hero-image-wrap reveal">
             <div class="tape hero-tape"></div><div class="hero-bubble script">Hej!</div><div class="hero-heart">♡</div><div class="hero-stroke"></div>
             <img class="hero-photo" src="angelina-portrait.jpg" alt="Ангеліна — репетиторка шведської мови" />
-            <aside class="hero-note"><strong>Привіт! 👋</strong><p>Я Ангеліна, твій провідник у світ шведської мови ♡</p></aside>
           </div>
         </div>
       </section>
@@ -348,7 +352,7 @@
 
       <section class="section about" id="about">
         <div class="container about-grid">
-          <figure class="polaroid reveal"><img src="angelina-diploma.jpg" alt="Ангеліна з навчальною карткою" /><figcaption>Jag är inte för alla ♡</figcaption><span class="about-doodle">♡</span></figure>
+          <figure class="polaroid reveal"><img src="angelina-diploma.jpg" alt="Ангеліна з дипломом" /><figcaption>Jag är inte för alla ♡</figcaption><span class="about-doodle">♡</span><aside class="hero-note"><strong>Привіт! 👋</strong><p>Я Ангеліна, твій провідник у світ шведської мови ♡</p></aside></figure>
           <div class="about-copy reveal"><span class="eyebrow">трохи ближче</span><h2 class="section-title">Про мене <span class="yellow">♡</span></h2><p>Я знаю, як страшно почати говорити новою мовою. Тому на моїх заняттях не потрібно боятися помилок — тут можна говорити, пробувати, сміятися і поступово ставати впевненішим.</p><p>Моя мета — щоб ти не просто знав шведську, а <strong>реально міг нею користуватися у житті.</strong></p><div class="lifestyle" aria-label="Мої інтереси"><span title="Piano">🎹</span><span title="Travel">✈️</span><span title="Books">📚</span><span title="Coffee">☕</span><span title="Moments">📷</span></div></div>
         </div>
       </section>
