@@ -4,13 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Онлайн-уроки шведської мови з Ангеліною Танчак — легко, сучасно та з турботою." />
-    <title>angelina_tanchak ♡ | Шведська легко</title>
+    <title>SOVELLIA · Ангеліна ♡ | Шведська легко</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <style>
       :root { --ink:#0c2750; --navy:#071f49; --cream:#fffdf8; --paper:#fffefa; --milk:#f7f1e7; --yellow:#f4c54b; --blue:#dceaf2; --pink:#ca8da2; --line:rgba(12,39,80,.11); --shadow:0 20px 45px rgba(20,34,54,.10); }
       * { box-sizing:border-box; }
+
+      /* ── ЛОГОТИП ── */
+      .brand--logo { display:inline-flex; align-items:center; gap:11px; text-decoration:none; }
+      .brand__img { width:42px; height:42px; border-radius:11px; object-fit:cover; display:block; box-shadow:0 4px 14px rgba(12,39,80,.18); }
+      .brand__name { display:flex; flex-direction:column; line-height:1.05; font-weight:700; letter-spacing:.10em; color:var(--ink); font-size:17px; }
+      .brand__name small { font-weight:500; letter-spacing:.22em; font-size:9.5px; text-transform:uppercase; color:rgba(12,39,80,.55); margin-top:3px; }
+      .footer .brand__name { color:#fff; }
+      .footer .brand__name small { color:rgba(255,255,255,.6); }
+      @media (max-width:760px){ .brand__img{width:36px;height:36px;} .brand__name{font-size:15px;} }
+
+
+      /* ── ТЕСТ НА РІВЕНЬ ── */
+      .leveltest { background:var(--milk); }
+      .lt-box { background:var(--paper); border:1px solid var(--line); border-radius:26px; padding:34px 30px; box-shadow:var(--shadow); max-width:760px; margin:0 auto; }
+      .lt-progress { font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:rgba(12,39,80,.5); margin-bottom:14px; }
+      .lt-bar { height:4px; background:var(--line); border-radius:4px; overflow:hidden; margin-bottom:26px; }
+      .lt-bar span { display:block; height:100%; background:var(--yellow); width:0; transition:width .3s ease; }
+      .lt-q { font-size:22px; font-weight:600; color:var(--ink); margin:0 0 6px; }
+      .lt-hint { font-size:14px; color:rgba(12,39,80,.55); margin:0 0 20px; }
+      .lt-opts { display:grid; gap:10px; }
+      .lt-opt { text-align:left; background:var(--cream); border:1.5px solid var(--line); border-radius:14px; padding:14px 18px; font-size:17px; font-family:inherit; color:var(--ink); cursor:pointer; transition:border-color .18s, background .18s; }
+      .lt-opt:hover { border-color:var(--yellow); }
+      .lt-opt.ok { border-color:#2e9e6b; background:#eaf7f0; }
+      .lt-opt.no { border-color:#d4736a; background:#fbeeec; }
+      .lt-next { margin-top:20px; }
+      .lt-result { display:none; text-align:center; }
+      .lt-result.show { display:block; }
+      .lt-level { font-size:64px; font-weight:800; color:var(--ink); line-height:1; margin:6px 0 10px; }
+      .lt-score { font-size:15px; color:rgba(12,39,80,.6); margin-bottom:16px; }
+      .lt-text { font-size:17px; color:var(--ink); max-width:520px; margin:0 auto 24px; line-height:1.6; }
+      @media (max-width:760px){ .lt-box{padding:26px 20px;} .lt-q{font-size:19px;} .lt-level{font-size:48px;} }
+
       html { scroll-behavior:smooth; }
       body { margin:0; min-width:320px; overflow-x:hidden; color:var(--ink); background:var(--cream); font-family:Manrope,Arial,sans-serif; line-height:1.5; }
       button,input,select,textarea { font:inherit; }
@@ -212,15 +244,15 @@
   <body>
     <header class="site-header" id="header">
       <div class="container nav">
-        <a class="brand" href="#top" aria-label="На головну">angelina_tanchak <span class="brand__flag">🇸🇪</span></a>
+        <a class="brand brand--logo" href="#top" aria-label="SOVELLIA — на головну"><img src="sovellia-logo.jpg" alt="SOVELLIA" class="brand__img"><span class="brand__name">SOVELLIA<small>Ангеліна</small></span></a>
         <nav class="nav-links" aria-label="Головна навігація">
-          <a href="#about">Про мене</a><a href="#formats">Уроки</a><a href="#method">Метод</a><a href="#pricing">Ціни</a><a href="#reviews">Відгуки</a><a href="#faq">FAQ</a><a href="#contacts">Контакти</a>
+          <a href="#about">Про мене</a><a href="#formats">Уроки</a><a href="#method">Метод</a><a href="#test">Тест</a><a href="#pricing">Ціни</a><a href="#reviews">Відгуки</a><a href="#faq">FAQ</a><a href="#contacts">Контакти</a>
         </nav>
         <button class="btn btn--primary nav-cta js-open-modal" type="button">Записатися на пробний <span>↗</span></button>
         <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Відкрити меню" aria-expanded="false">☰</button>
       </div>
       <nav class="mobile-menu" id="mobile-menu" aria-label="Мобільна навігація">
-        <a href="#about">Про мене</a><a href="#formats">Уроки</a><a href="#method">Метод</a><a href="#pricing">Ціни</a><a href="#reviews">Відгуки</a><a href="#faq">FAQ</a><a href="#contacts">Контакти</a>
+        <a href="#about">Про мене</a><a href="#formats">Уроки</a><a href="#method">Метод</a><a href="#test">Тест</a><a href="#pricing">Ціни</a><a href="#reviews">Відгуки</a><a href="#faq">FAQ</a><a href="#contacts">Контакти</a>
         <button class="btn btn--primary js-open-modal" type="button">Записатися на пробний урок ↗</button>
       </nav>
     </header>
@@ -346,6 +378,32 @@
         </div>
       </section>
 
+
+      <section class="section leveltest" id="test">
+        <div class="container">
+          <h2 class="section-title reveal">Тест на рівень <span class="yellow">✦</span></h2>
+          <p class="timeline-intro reveal">Дванадцять запитань, дві хвилини. Дізнаєшся свій рівень і з чого краще починати.</p>
+          <div class="lt-box reveal">
+            <div id="lt-quiz">
+              <div class="lt-progress" id="lt-progress"></div>
+              <div class="lt-bar"><span id="lt-bar"></span></div>
+              <h3 class="lt-q" id="lt-q"></h3>
+              <p class="lt-hint" id="lt-hint"></p>
+              <div class="lt-opts" id="lt-opts"></div>
+              <button class="btn btn--primary lt-next" id="lt-next" type="button" style="display:none">Далі →</button>
+            </div>
+            <div class="lt-result" id="lt-result">
+              <div class="lt-progress">Твій орієнтовний рівень</div>
+              <div class="lt-level" id="lt-level"></div>
+              <div class="lt-score" id="lt-score"></div>
+              <p class="lt-text" id="lt-text"></p>
+              <button class="btn btn--yellow js-open-modal" type="button">Записатися на безкоштовний пробний →</button>
+              <div style="margin-top:14px"><button class="btn btn--light" id="lt-again" type="button">Пройти ще раз</button></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="section timeline" id="timeline">
         <div class="container"><h2 class="section-title reveal">Як проходять заняття</h2><p class="timeline-intro reveal">Від знайомства до помітного прогресу — чіткий маршрут, у якому є місце твоєму темпу та цілям.</p><div class="timeline-grid">
           <article class="step reveal"><div class="step__num">01</div><div><h3>Знайомимося</h3><p>Обговорюємо твої цілі, рівень та побажання.</p></div></article>
@@ -378,7 +436,7 @@
       <section class="final-cta" id="contacts"><div class="container"><div class="cta-card reveal"><div class="cta-copy"><h2>Твоя шведська може початися сьогодні <span>🇸🇪</span></h2><p><strong>Hej</strong> — це вже перше слово.<br>Давай зробимо наступні разом!</p><button class="btn btn--primary js-open-modal" type="button">✈&nbsp; Записатися на безкоштовний урок</button><small>Без зобов'язань. Просто познайомимось і поговоримо про твою ціль.<br><a href="https://t.me/znahidkawow" target="_blank" rel="noreferrer">♡ Долучайся до Telegram-спільноти</a></small></div><div class="cta-photo"><img src="angelina-portrait.jpg" alt="Ангеліна — твоя викладачка шведської" /></div></div></div></section>
     </main>
 
-    <footer class="footer"><div class="container footer-row"><a class="brand" href="#top">angelina_tanchak <span class="brand__flag">♡</span></a><nav class="footer-links"><a href="https://t.me/znahidkawow" target="_blank" rel="noreferrer">Telegram-спільнота</a><a href="https://instagram.com/" target="_blank" rel="noreferrer">Instagram</a><a href="https://threads.net/" target="_blank" rel="noreferrer">Threads</a></nav><div class="footer-copy">© 2026 Ангеліна. Всі права захищені.</div></div></footer>
+    <footer class="footer"><div class="container footer-row"><a class="brand brand--logo" href="#top"><img src="sovellia-logo.jpg" alt="SOVELLIA" class="brand__img"><span class="brand__name">SOVELLIA<small>Ангеліна</small></span></a><nav class="footer-links"><a href="https://t.me/znahidkawow" target="_blank" rel="noreferrer">Telegram-спільнота</a><a href="https://instagram.com/" target="_blank" rel="noreferrer">Instagram</a><a href="https://threads.net/" target="_blank" rel="noreferrer">Threads</a></nav><div class="footer-copy">© 2026 SOVELLIA · Ангеліна. Всі права захищені.</div></div></footer>
 
     <div class="modal" id="signup-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <div class="modal-dialog"><button class="modal-close" id="modal-close" type="button" aria-label="Закрити форму">×</button><div id="form-content"><h2 id="modal-title">Давай познайомимось <span class="yellow">♡</span></h2><p>Залиш контакти — я напишу тобі найближчим часом.</p><form id="signup-form"><div class="form-grid"><div class="field"><label for="name">Твоє ім’я</label><input id="name" name="name" type="text" placeholder="Наприклад, Марія" required /></div><div class="field"><label for="contact">Telegram / Instagram</label><input id="contact" name="contact" type="text" placeholder="@username" required /></div><div class="field field--full"><label for="format">Який формат цікавить?</label><select id="format" name="format" required><option value="" disabled selected>Обери формат</option><option>Індивідуальні заняття</option><option>Групові заняття</option><option>Поки не знаю — хочу порадитись</option></select></div><div class="field field--full"><label for="level">Твій рівень шведської</label><select id="level" name="level" required><option value="" disabled selected>Обери рівень</option><option>Починаю з нуля</option><option>A1–A2</option><option>B1–B2</option><option>Не впевнений / не впевнена</option></select></div></div><button class="btn btn--primary form-submit" type="submit">Записатися ✈</button></form></div><div class="form-success" id="form-success">Дякую! ♡ Я зв'яжуся з тобою найближчим часом.</div></div>
@@ -423,6 +481,99 @@
         form.reset();
         setTimeout(() => { window.open('https://t.me/znahidkawow', '_blank'); }, 1200);
       });
+
+      // ── ТЕСТ НА РІВЕНЬ ──
+      (function(){
+        var Q = [
+          { q:'Hej! Vad ___ du?', hint:'Як тебе звати?', o:['heter','hetar','heta'], a:0 },
+          { q:'Jag ___ från Ukraina.', hint:'Дієслово в теперішньому часі', o:['kommer','kommar','komma'], a:0 },
+          { q:'Hon har ___ hund.', hint:'Який артикль підходить?', o:['en','ett','den'], a:0 },
+          { q:'Vi ___ svenska varje dag.', hint:'«Кожного дня» — який час?', o:['pratar','pratade','prata'], a:0 },
+          { q:'Igår ___ jag på bio.', hint:'«Вчора» — минулий час', o:['gick','går','gå'], a:0 },
+          { q:'Det är ___ än igår.', hint:'Порівняння: kall → ?', o:['kallare','kallast','kall'], a:0 },
+          { q:'Jag har ___ boken.', hint:'Läsa у перфекті', o:['läst','läser','läsa'], a:0 },
+          { q:'___ du hjälpa mig?', hint:'Ввічливе прохання', o:['Kan','Kanske','Kunde'], a:0 },
+          { q:'Om jag ___ tid, skulle jag resa mer.', hint:'Умовне речення', o:['hade','har','haft'], a:0 },
+          { q:'Han sa att han ___ trött.', hint:'Непряма мова в минулому', o:['var','är','vara'], a:0 },
+          { q:'Boken ___ av många studenter.', hint:'Пасив теперішнього часу', o:['läses','läsar','lästs'], a:0 },
+          { q:'Jag undrar ___ hon kommer.', hint:'«Чи прийде вона»', o:['om','att','som'], a:0 }
+        ];
+        var LEVELS = [
+          { max:4,  name:'A1', text:'Чудовий старт з нуля. Почнемо з базових фраз і одразу говоритимемо — без місяців теорії. Пробний урок покаже, як швидко це працює.' },
+          { max:8,  name:'A2', text:'Основа вже є, бракує впевненості в мовленні. Далі — розширення словника і практика реальних діалогів.' },
+          { max:11, name:'B1', text:'Ти вже добре тримаєшся. Час доводити до автоматизму складніші конструкції й говорити вільніше.' },
+          { max:12, name:'B2', text:'Сильний результат. Працюватимемо над нюансами, стилем і впевненістю в роботі та навчанні.' }
+        ];
+        var quiz = document.getElementById('lt-quiz');
+        if (!quiz) return;
+        var elQ = document.getElementById('lt-q'), elHint = document.getElementById('lt-hint'),
+            elOpts = document.getElementById('lt-opts'), elNext = document.getElementById('lt-next'),
+            elProg = document.getElementById('lt-progress'), elBar = document.getElementById('lt-bar'),
+            elRes = document.getElementById('lt-result'), elLevel = document.getElementById('lt-level'),
+            elScore = document.getElementById('lt-score'), elText = document.getElementById('lt-text'),
+            elAgain = document.getElementById('lt-again');
+        var i = 0, score = 0, answered = false;
+
+        function shuffle(arr){ var a = arr.slice(); for (var k=a.length-1;k>0;k--){ var j=Math.floor(Math.random()*(k+1)); var t=a[k]; a[k]=a[j]; a[j]=t; } return a; }
+
+        function render(){
+          answered = false;
+          elNext.style.display = 'none';
+          var item = Q[i];
+          elProg.textContent = 'Запитання ' + (i+1) + ' з ' + Q.length;
+          elBar.style.width = (i / Q.length * 100) + '%';
+          elQ.textContent = item.q;
+          elHint.textContent = item.hint;
+          var correct = item.o[item.a];
+          var opts = shuffle(item.o);
+          elOpts.innerHTML = '';
+          opts.forEach(function(opt){
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'lt-opt';
+            btn.textContent = opt;
+            btn.addEventListener('click', function(){
+              if (answered) return;
+              answered = true;
+              var right = opt === correct;
+              if (right) score++;
+              Array.prototype.forEach.call(elOpts.children, function(c){
+                if (c.textContent === correct) c.classList.add('ok');
+                else if (c === btn) c.classList.add('no');
+              });
+              elNext.style.display = 'inline-flex';
+              elNext.textContent = (i === Q.length - 1) ? 'Побачити результат →' : 'Далі →';
+            });
+            elOpts.appendChild(btn);
+          });
+        }
+
+        elNext.addEventListener('click', function(){
+          if (i < Q.length - 1) { i++; render(); }
+          else { finish(); }
+        });
+
+        function finish(){
+          elBar.style.width = '100%';
+          quiz.style.display = 'none';
+          elRes.classList.add('show');
+          var lv = LEVELS[LEVELS.length-1];
+          for (var k=0;k<LEVELS.length;k++){ if (score <= LEVELS[k].max) { lv = LEVELS[k]; break; } }
+          elLevel.textContent = lv.name;
+          elScore.textContent = 'Правильних відповідей: ' + score + ' з ' + Q.length;
+          elText.textContent = lv.text;
+        }
+
+        elAgain.addEventListener('click', function(){
+          i = 0; score = 0;
+          elRes.classList.remove('show');
+          quiz.style.display = 'block';
+          render();
+        });
+
+        render();
+      })();
+
       document.querySelectorAll('.faq-item button').forEach(button => button.addEventListener('click', () => button.parentElement.classList.toggle('open')));
       const track = document.getElementById('reviews-track'); const reviews = Array.from(track.children); let reviewIndex = 0;
       const visibleReviews = () => window.innerWidth <= 760 ? 1 : 3;
